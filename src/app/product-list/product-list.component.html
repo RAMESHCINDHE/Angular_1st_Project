@@ -1,0 +1,36 @@
+<!-- product-list.component.html -->
+<section>
+  <div>
+    <h2 class="product-title">Products</h2>
+    
+    <!--<h3>{{searchByCategory}}</h3><input type="text" size="30px" [(ngModel)]="name"/>
+    
+    <br/><h3>Item '{{v1}}' is selected </h3> -->
+
+    <h3>{{searchByCategory}}</h3>
+    <input type="text" size="30px" (input)="onNameChange($event)" />
+    <p>Product selected={{name}}</p>
+    <p>No of Items in store:{{itemcount}}</p>
+
+    </div>
+    <div class="product-container">
+      <div *ngFor="let product of products" class="product-card">
+        <img [src]="product.imagePath" alt="Product Image">
+        <h3>{{ product.name }}</h3>
+        <p>Price: ${{ product.price }}</p>
+        <p><b>Instock:{{product.instock >0 ? 'Only '+product.instock +' Items left':' Not in Stock'}}</b></p>
+        <input type='button' value="Buy Now" [disabled]="!(product.instock > 0 )" /> 
+<div class="ecart-container">
+  <button (click)="decrementEcart()">-</button>
+  <span>{{ecartvalue}}</span>
+  <button (click)="incrementEcart()">+</button>
+  </div>
+      
+      
+    
+    </div>
+    </div>
+  </section>
+  
+  <!-- [disabled] [checked] [hidden]-->
+      <!--instead of square bracker u caan also use bing-attributename -->
